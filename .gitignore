@@ -1,0 +1,8 @@
+/Debug
+/ipch
+/Release
+/*.sdf
+/resizeC/Debug
+/resizeC/Release
+/*.opensdf
+/resizeC/*.suo
