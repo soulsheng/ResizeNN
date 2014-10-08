@@ -6,7 +6,7 @@ void print( char* p, int width, int height );
 
 void main()
 {
-	char img_in[4][4] = {{0,0,1,1}, {0,1,0,1}, {1,0,1,0}, {1,1,0,0}};
+	char img_in[4][4] = {{0,1,2,2}, {3,0,1,2}, {4,3,0,1}, {4,4,3,0}};
 
 	char img_out[8][8] = {{0}};
 
