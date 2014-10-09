@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\utility\bmpHandler.h" />
+    <ClInclude Include="..\utility\helper_timer.h" />
     <ClInclude Include="resizeNN.h" />
   </ItemGroup>
   <ItemGroup>

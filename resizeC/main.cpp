@@ -5,7 +5,7 @@
 #include "bmpHandler.h"
 
 #define	IMAGE_FILE_TEST		"DarkChannel.bmp"
-#define SCALE				0.5f//2.0f
+#define SCALE				2.0f//0.5f
 
 void main()
 {
@@ -21,9 +21,17 @@ void main()
 
 	BMPHandler::readImageData( IMAGE_FILE_TEST, img_in );
 
+	printf("\n 1.scale large: \n");
 	resize( img_in, img_out, width, height, width*SCALE, height*SCALE );
+	BMPHandler::saveImage("outL.bmp", img_out, height*SCALE, width*SCALE );
 
-	BMPHandler::saveImage("outd5.bmp", img_out, height*SCALE, width*SCALE );
+	printf("\n 2.scale small: \n");
+	resize( img_in, img_out, width, height, width/SCALE, height/SCALE );
+	BMPHandler::saveImage("outS.bmp", img_out, height/SCALE, width/SCALE );
+
+	printf("\n 3.scale recover: \n");
+	resize( img_out, img_in, width/SCALE, height/SCALE, width, height );
+	BMPHandler::saveImage("outR.bmp", img_in, height, width );
 
 	free( img_in );
 	free( img_out );

@@ -3,13 +3,25 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="resizeNN.cpp" />
-    <ClCompile Include="..\utility\bmpHandler.cpp" />
+    <ClCompile Include="..\utility\bmpHandler.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resizeNN.h" />
-    <ClInclude Include="..\utility\bmpHandler.h" />
+    <ClInclude Include="..\utility\bmpHandler.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\utility\helper_timer.h">
+      <Filter>utility</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resizeNN.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="utility">
+      <UniqueIdentifier>{fd6afd6a-8216-4d7f-a7aa-8dfa73c5c250}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
