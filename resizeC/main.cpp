@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include "resizeNN.h"
+#include "bmpHandler.h"
 
 void print( char* p, int width, int height );
 

@@ -3,8 +3,10 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="resizeNN.cpp" />
+    <ClCompile Include="..\utility\bmpHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resizeNN.h" />
+    <ClInclude Include="..\utility\bmpHandler.h" />
   </ItemGroup>
 </Project>
