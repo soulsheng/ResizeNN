@@ -75,6 +75,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="resizeNN.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resizeNN.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
