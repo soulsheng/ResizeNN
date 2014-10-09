@@ -48,7 +48,7 @@ void resizeGPU( T* pIn, T* pOut, int widthIn, int heightIn, int widthOut, int he
 
 	dim3 block(16, 16);
 	dim3 grid( (widthOut+15)/16, (heightOut+15)/16 );
-	resize_kernel<<< block, grid >>>( pIn_d, pOut_d, widthIn, heightIn, widthOut, heightOut );
+	resize_kernel<<< grid, block >>>( pIn_d, pOut_d, widthIn, heightIn, widthOut, heightOut );
 
 	cudaDeviceSynchronize();
 
