@@ -5,6 +5,14 @@
 #include "helper_timer.h"
 #define	ENABLE_TIMER		1
 
+/*	size:	720p(1280*720)
+	gpu:	gtx480
+	cpu:	E8200
+
+		scaleX/Y	time(ms)
+		1->0.5		0.39		
+		0.5->1		0.35		*/
+
 template <typename T>
 __global__ void resize_kernel( T* pIn, T* pOut, int widthIn, int heightIn, int widthOut, int heightOut )
 {
