@@ -83,6 +83,9 @@
     <ClInclude Include="..\utility\bmpHandler.h" />
     <ClInclude Include="resizeNN.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="resizeNN.inl" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,30 +1,30 @@
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "resizeNN.h"
 #include "bmpHandler.h"
 
-void print( char* p, int width, int height );
+#define	IMAGE_FILE_TEST		"DarkChannel.bmp"
+#define SCALE				0.5f//2.0f
 
 void main()
 {
-	char img_in[4][4] = {{0,1,2,2}, {3,0,1,2}, {4,3,0,1}, {4,4,3,0}};
+	//char img_in[4][4] = {{0,1,2,2}, {3,0,1,2}, {4,3,0,1}, {4,4,3,0}};
 
-	char img_out[8][8] = {{0}};
+	//char img_out[8][8] = {{0}};
 
-	resize( &img_in[0][0], &img_out[0][0], 4, 4, 8, 8 );
+	int width, height;
+	BMPHandler::getImageSize( IMAGE_FILE_TEST, height, width );
 
-	print( &img_out[0][0], 8, 8 );
-}
+	unsigned int *img_in=(unsigned int *)malloc(height*width*sizeof(unsigned int));
+	unsigned int *img_out=(unsigned int *)malloc(height*SCALE*width*SCALE*sizeof(unsigned int));
 
-void print( char* p, int width, int height )
-{
-	for (int i=0;i<height;i++)
-	{
-		for (int j=0;j<width;j++)
-		{
-			printf("%5d,", p[i*width+j]);
-		}
-		printf("\n");
-	}
-	printf("\n");
+	BMPHandler::readImageData( IMAGE_FILE_TEST, img_in );
+
+	resize( img_in, img_out, width, height, width*SCALE, height*SCALE );
+
+	BMPHandler::saveImage("outd5.bmp", img_out, height*SCALE, width*SCALE );
+
+	free( img_in );
+	free( img_out );
 }

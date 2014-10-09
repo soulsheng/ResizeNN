@@ -1,4 +1,8 @@
 
 #pragma once
 
-void resize( char* pIn, char* pOut, int widthIn, int heightIn, int widthOut, int heightOut );
+template< typename T >
+void resize( T* pIn, T* pOut, int widthIn, int heightIn, int widthOut, int heightOut );
+
+
+#include "resizeNN.inl"

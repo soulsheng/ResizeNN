@@ -9,4 +9,7 @@
     <ClInclude Include="resizeNN.h" />
     <ClInclude Include="..\utility\bmpHandler.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="resizeNN.inl" />
+  </ItemGroup>
 </Project>
