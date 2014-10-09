@@ -8,7 +8,7 @@ public:
 	CUResizeNN( int widthIn, int heightIn, int widthOut, int heightOut );
 	~CUResizeNN();
 
-	void process( unsigned int* pIn, unsigned int* pOut );
+	void process( unsigned int* pIn, unsigned int* pOut, bool bDeviceBuffer = false );
 
 	void initialize();
 

@@ -35,7 +35,7 @@ void resizeGPU( T* pIn_d, T* pOut_d, int widthIn, int heightIn, int widthOut, in
 	resize_kernel<<< grid, block >>>( pIn_d, pOut_d, widthIn, heightIn, widthOut, heightOut );
 }
 
-void CUResizeNN::process( unsigned int* pIn, unsigned int* pOut )
+void CUResizeNN::process( unsigned int* pIn, unsigned int* pOut, bool bDeviceBuffer /*= false*/ )
 {
 
 #if ENABLE_TIMER
@@ -43,8 +43,11 @@ void CUResizeNN::process( unsigned int* pIn, unsigned int* pOut )
 	sdkCreateTimer(&timer);
 	sdkStartTimer(&timer);
 #endif
-
-	cudaMemcpy( pIn_d, pIn, widthIn*heightIn*sizeof(unsigned int), cudaMemcpyHostToDevice );
+	
+	if( !bDeviceBuffer )
+		cudaMemcpy( pIn_d, pIn, widthIn*heightIn*sizeof(unsigned int), cudaMemcpyHostToDevice );
+	else
+		cudaMemcpy( pIn_d, pIn, widthIn*heightIn*sizeof(unsigned int), cudaMemcpyDeviceToDevice );
 
 #if ENABLE_TIMER
 	sdkStopTimer(&timer);
@@ -71,9 +74,12 @@ void CUResizeNN::process( unsigned int* pIn, unsigned int* pOut )
 	sdkResetTimer(&timer);
 	sdkStartTimer(&timer);
 #endif
-
-	cudaMemcpy( pOut, pOut_d, widthOut*heightOut*sizeof(unsigned int), cudaMemcpyDeviceToHost );
 	
+	if( !bDeviceBuffer )
+		cudaMemcpy( pOut, pOut_d, widthOut*heightOut*sizeof(unsigned int), cudaMemcpyDeviceToHost );
+	else
+		cudaMemcpy( pOut, pOut_d, widthOut*heightOut*sizeof(unsigned int), cudaMemcpyDeviceToDevice );
+
 #if ENABLE_TIMER
 	sdkStopTimer(&timer);
 	printf("Processing time cudaMemcpyDeviceToHost: %f (ms)\n", sdkGetTimerValue(&timer));
