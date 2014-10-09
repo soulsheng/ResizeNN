@@ -7,3 +7,8 @@
 /*.opensdf
 /resizeC/*.suo
 /*.suo
+/resizeCUDA/Debug
+/resizeCUDA/Release
+/resizeCUDA/*.pdb
+/resizeCUDA/*.bmp
+/resizeC/*.bmp

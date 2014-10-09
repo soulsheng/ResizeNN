@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "resizeC", "resizeC\resizeC.vcxproj", "{719FDA07-AEB7-40CC-88BC-ACF0C51B8435}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "resizeCUDA", "resizeCUDA\resizeCUDA.vcxproj", "{0855480F-3610-4A69-AE1B-496277A6110C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{719FDA07-AEB7-40CC-88BC-ACF0C51B8435}.Debug|Win32.Build.0 = Debug|Win32
 		{719FDA07-AEB7-40CC-88BC-ACF0C51B8435}.Release|Win32.ActiveCfg = Release|Win32
 		{719FDA07-AEB7-40CC-88BC-ACF0C51B8435}.Release|Win32.Build.0 = Release|Win32
+		{0855480F-3610-4A69-AE1B-496277A6110C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0855480F-3610-4A69-AE1B-496277A6110C}.Debug|Win32.Build.0 = Debug|Win32
+		{0855480F-3610-4A69-AE1B-496277A6110C}.Release|Win32.ActiveCfg = Release|Win32
+		{0855480F-3610-4A69-AE1B-496277A6110C}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
