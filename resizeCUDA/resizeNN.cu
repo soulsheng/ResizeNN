@@ -118,3 +118,13 @@ void CUResizeNN::release()
 	cudaFree( pIn_d );
 	cudaFree( pOut_d );
 }
+
+void CUResizeNN::process( float* pIn, float* pOut, int widthIn, int heightIn, int widthOut, int heightOut  )
+{
+	resizeGPU<float>( pIn, pOut, widthIn, heightIn, widthOut, heightOut );
+}
+
+void CUResizeNN::process( unsigned int* pIn, unsigned int* pOut, int widthIn, int heightIn, int widthOut, int heightOut  )
+{
+	resizeGPU<unsigned int>( pIn, pOut, widthIn, heightIn, widthOut, heightOut );
+}
