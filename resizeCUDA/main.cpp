@@ -20,19 +20,22 @@ void main()
 	unsigned int *img_out=(unsigned int *)malloc(height*SCALE*width*SCALE*sizeof(unsigned int));
 
 	BMPHandler::readImageData( IMAGE_FILE_TEST, img_in );
-#if 1
+
 	printf("\n 1.scale large: \n");
-	resize( img_in, img_out, width, height, width*SCALE, height*SCALE );
+	CUResizeNN	large( width, height, width*SCALE, height*SCALE );
+	large.process( img_in, img_out );
 	BMPHandler::saveImage("outL.bmp", img_out, height*SCALE, width*SCALE );
-#endif
+
 	printf("\n 2.scale small: \n");
-	resize( img_in, img_out, width, height, width/SCALE, height/SCALE );
+	CUResizeNN	small( width, height, width/SCALE, height/SCALE );
+	small.process( img_in, img_out );
 	BMPHandler::saveImage("outS.bmp", img_out, height/SCALE, width/SCALE );
-#if 1
+
 	printf("\n 3.scale recover: \n");
-	resize( img_out, img_in, width/SCALE, height/SCALE, width, height );
+	CUResizeNN	recover( width/SCALE, height/SCALE, width, height );
+	recover.process( img_out, img_in );
 	BMPHandler::saveImage("outR.bmp", img_in, height, width );
-#endif
+
 	free( img_in );
 	free( img_out );
 }
