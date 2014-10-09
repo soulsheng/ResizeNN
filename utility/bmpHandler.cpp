@@ -6,32 +6,10 @@
 #include <iostream>
 using namespace std;
 
-//BMPFILEHEADER BMPHandler::fileHeader;
-//BMPINF BMPHandler::infoHeader;
-
 	BMPHandler::BMPHandler()
 	{
 	}
 
-
-	void BMPHandler::readImageHeader(char* filename, BMPFILEHEADER& fileHeader, BMPINF& infoHeader)
-	{
-		FILE *fp=NULL;
-
-		fp=fopen(filename,"rb");
-		if(fp == NULL)
-		{
-			printf("Cann't open the file!\n");
-			exit(0);
-		}
-
-		fread(&fileHeader, sizeof(fileHeader), 1, fp);
-		fread(&infoHeader, sizeof(infoHeader), 1, fp);
-
-		fclose(fp);
-	}
-
-	
 
 	void BMPHandler::getImageSize( char* filename, int& height, int& width )
 	{
@@ -177,30 +155,3 @@ using namespace std;
 		}
 	}
 
-
-//Converting an RGB image into a grayscale image
-void rgbGray(float **rgb_gray,float **R_P,float **G_P,float **B_P,int height,int width) 
-{
- 	int i,j;     
-    for(i=0;i<height;i++)
-    {
-	    for(j=0;j<width;j++)
-	    {
-	        //Converting an RGB image into a grayscale image
-		    rgb_gray[i][j] = 0.299f * R_P[i][j] + 0.587f * G_P[i][j] + 0.114f * B_P[i][j]; 
-		}
-    }    
-}
-
-void rgbGray( int *rgb_gray,float *R_P,float *G_P,float *B_P,int height,int width )
-{
-	for(int i=0;i<height;i++)
-	{
-		for(int j=0;j<width;j++)
-		{
-			//Converting an RGB image into a grayscale image
-			float gray = 0.299f * R_P[i*width+j] + 0.587f * G_P[i*width+j] + 0.114f * B_P[i*width+j]; 
-			rgb_gray[i*width+j] = (int)( gray + 0.5f );
-		}
-	}    
-}
