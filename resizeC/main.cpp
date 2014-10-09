@@ -4,7 +4,7 @@
 #include "resizeNN.h"
 #include "bmpHandler.h"
 
-#define	IMAGE_FILE_TEST		"DarkChannel.bmp"
+#define	IMAGE_FILE_TEST		"DarkChannel.bmp"//720p - 1280¡Á720
 #define SCALE				2.0f//0.5f
 
 void main()
