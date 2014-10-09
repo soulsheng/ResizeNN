@@ -92,14 +92,9 @@ void CUResizeNN::process( unsigned int* pIn, unsigned int* pOut, bool bDeviceBuf
 
 }
 
-CUResizeNN::CUResizeNN( int widthIn, int heightIn, int widthOut, int heightOut )
+CUResizeNN::CUResizeNN()
 {
-	this->widthIn = widthIn;
-	this->heightIn = heightIn;
-	this->widthOut = widthOut;
-	this->heightOut = heightOut;
-
-	initialize();
+	
 }
 
 CUResizeNN::~CUResizeNN()
@@ -107,8 +102,13 @@ CUResizeNN::~CUResizeNN()
 	release();
 }
 
-void CUResizeNN::initialize()
+void CUResizeNN::initialize( int widthIn, int heightIn, int widthOut, int heightOut )
 {
+	this->widthIn = widthIn;
+	this->heightIn = heightIn;
+	this->widthOut = widthOut;
+	this->heightOut = heightOut;
+
 	cudaMalloc( &pIn_d, widthIn*heightIn*sizeof(unsigned int) );
 	cudaMalloc( &pOut_d, widthOut*heightOut*sizeof(unsigned int) );
 }

@@ -5,12 +5,12 @@
 class CUResizeNN
 {
 public:
-	CUResizeNN( int widthIn, int heightIn, int widthOut, int heightOut );
+	CUResizeNN();
 	~CUResizeNN();
 
 	void process( unsigned int* pIn, unsigned int* pOut, bool bDeviceBuffer = false );
 
-	void initialize();
+	void initialize( int widthIn, int heightIn, int widthOut, int heightOut );
 
 	void release();
 

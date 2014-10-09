@@ -22,17 +22,20 @@ void main()
 	BMPHandler::readImageData( IMAGE_FILE_TEST, img_in );
 
 	printf("\n 1.scale large: \n");
-	CUResizeNN	large( width, height, width*SCALE, height*SCALE );
+	CUResizeNN	large;
+	large.initialize( width, height, width*SCALE, height*SCALE );
 	large.process( img_in, img_out );
 	BMPHandler::saveImage("outL.bmp", img_out, height*SCALE, width*SCALE );
 
 	printf("\n 2.scale small: \n");
-	CUResizeNN	small( width, height, width/SCALE, height/SCALE );
+	CUResizeNN	small;
+	small.initialize( width, height, width/SCALE, height/SCALE );
 	small.process( img_in, img_out );
 	BMPHandler::saveImage("outS.bmp", img_out, height/SCALE, width/SCALE );
 
 	printf("\n 3.scale recover: \n");
-	CUResizeNN	recover( width/SCALE, height/SCALE, width, height );
+	CUResizeNN	recover;
+	recover.initialize( width/SCALE, height/SCALE, width, height );
 	recover.process( img_out, img_in );
 	BMPHandler::saveImage("outR.bmp", img_in, height, width );
 
